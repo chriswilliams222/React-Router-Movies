@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import {Route,Switch} from 'react-router-dom'
-// import SavedList from './Movies/SavedList';
+import SavedList from './Movies/SavedList';
 import MovieList from './Movies/MovieList';
 import Movie from './Movies/Movie';
 
@@ -31,10 +31,10 @@ export default function App () {
 
   return (
     <div>
-      
+      <SavedList list={[ /* This is stretch */]} />
       <Switch>
-      <Route path='/' render={props =><MovieList movies={movieList} {...props} />}/>
-      <Route path='/movies/:id' render={props =><Movie movies={movieList} {...props} />}/>
+      <Route exact path='/' render={props =><MovieList movies={movieList} {...props} />}/>
+      <Route path='/movies/:id' render={props =><Movie {...props} />}/>
       </Switch>
     </div>
   );
